@@ -1,4 +1,3 @@
-
 import os
 from pathlib import Path
 from datetime import timedelta
@@ -14,17 +13,20 @@ if not SECRET_KEY:
 
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+# ========== اصلاح: اضافه کردن IP سرور به ALLOWED_HOSTS ==========
+# حالا هم از متغیر محیطی می‌خواند، هم مقدار پیش‌فرض شامل IP سرور و localhost
+default_hosts = 'localhost,127.0.0.1,92.114.51.36'  # IP سرور خودت را اضافه کن
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default_hosts).split(',')
 
 # ========== Hash Salt (هرگز تغییر ندهید پس از تولید اولیه) ==========
 PHONE_EMAIL_HASH_SALT = os.environ.get('PHONE_EMAIL_HASH_SALT', 'fixed_default_salt_never_change_in_production')
 if PHONE_EMAIL_HASH_SALT == 'fixed_default_salt_never_change_in_production' and not DEBUG:
     raise ValueError("PHONE_EMAIL_HASH_SALT must be set in production environment")
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "http://192.168.1.6:3000",
-]
+
+# CORS: اضافه کردن آدرس فرانت‌اند (اگر روی همان سرور با پورت 80 یا 3000 است)
+default_cors = 'http://localhost:3000,http://127.0.0.1:3000,http://192.168.1.6:3000,http://92.114.51.36'
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', default_cors).split(',')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,9 +42,9 @@ INSTALLED_APPS = [
     # 'django_redis',   # اگر نصب نیست یا فعلاً نیاز ندارید، کامنت کنید
     
     'accounts.apps.AccountsConfig',
-    'products.apps.ProductsConfig',      # ← فعال
-    'suppliers.apps.SuppliersConfig',    # ← فعال
-    # 'favorites.apps.FavoritesConfig',    # ← این را بساز
+    'products.apps.ProductsConfig',
+    'suppliers.apps.SuppliersConfig',
+    # 'favorites.apps.FavoritesConfig',    # این را بساز
         
     'admin_panel',
 ]
@@ -53,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -141,13 +145,13 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'   # مسیر خوبی برای collectstatic
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',')
+# CORS_ALLOWED_ORIGINS قبلاً تنظیم شد (بالا)
 CORS_ALLOW_CREDENTIALS = True
 
 SIMPLE_JWT = {
@@ -208,7 +212,7 @@ if not DEBUG:
 
 LOG_DIR = BASE_DIR / 'logs'
 if not DEBUG:
-    LOG_DIR = Path('/var/log/myproject')
+    LOG_DIR = Path('/var/log/backend_omde')   # تغییر مسیر به دایرکتوری مخصوص پروژه
 LOG_DIR.mkdir(exist_ok=True)
 
 LOGGING = {
