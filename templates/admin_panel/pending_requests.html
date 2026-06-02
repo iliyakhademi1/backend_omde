@@ -1,0 +1,39 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block content %}
+<h2>درخواست‌های تأمین‌کنندگی (در انتظار تأیید)</h2>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>نام کاربری</th>
+            <th>شماره موبایل</th>
+            <th>نام نمایشی</th>
+            <th>اطلاعات شرکت</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.display_name|default:"---" }}</td>
+            <td>
+                <button class="btn btn-sm btn-info" data-bs-toggle="collapse" data-bs-target="#info-{{ user.id }}">نمایش جزئیات</button>
+                <div id="info-{{ user.id }}" class="collapse mt-2">
+                    <pre>{{ user.supplier_info|default:"{}" }}</pre>
+                </div>
+            </td>
+            <td>
+                <a href="{% url 'admin_panel:approve_user' user.id %}" class="btn btn-success btn-sm">تأیید</a>
+                <a href="{% url 'admin_panel:reject_user' user.id %}" class="btn btn-danger btn-sm">رد</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">هیچ درخواستی وجود ندارد.</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

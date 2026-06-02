@@ -1,0 +1,1476 @@
+ERROR 2026-05-27 02:25:49,068 log Internal Server Error: /api/accounts/auth/send-otp/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/utils/module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+AttributeError: module 'redis.connection' has no attribute 'HiredisParser'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/client/default.py", line 293, in get
+    client = self.get_client(write=False)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/client/default.py", line 128, in get_client
+    self._clients[index] = self.connect(index)
+                           ~~~~~~~~~~~~^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/client/default.py", line 157, in connect
+    return self.connection_factory.connect(self._server[index])
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/pool.py", line 69, in connect
+    params = self.make_connection_params(url)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/pool.py", line 41, in make_connection_params
+    "parser_class": self.get_parser_cls(),
+                    ~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/pool.py", line 97, in get_parser_cls
+    return import_string(cls)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/utils/module_loading.py", line 32, in import_string
+    raise ImportError(
+    ...<2 lines>...
+    ) from err
+ImportError: Module "redis.connection" does not define a "HiredisParser" attribute/class
+ERROR 2026-05-27 02:29:42,093 log Internal Server Error: /api/accounts/auth/send-otp/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 29, in _decorator
+    return method(self, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 99, in _get
+    return self.client.get(key, default=default, version=version, client=client)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/client/default.py", line 300, in get
+    raise ConnectionInterrupted(connection=client) from e
+django_redis.exceptions.ConnectionInterrupted: Redis ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 503, in dispatch
+    self.initial(request, *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 422, in initial
+    self.check_throttles(request)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 365, in check_throttles
+    if not throttle.allow_request(request, self):
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/throttling.py", line 123, in allow_request
+    self.history = self.cache.get(self.key, [])
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 92, in get
+    value = self._get(key, default, version, client)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/cache.py", line 36, in _decorator
+    raise e.__cause__  # noqa: B904
+    ^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django_redis/client/default.py", line 298, in get
+    value = client.get(key)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/redis/commands/core.py", line 1822, in get
+    return self.execute_command("GET", name, keys=[name])
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/redis/connection.py", line 1638, in get_connection
+    connection.connect()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 61 connecting to 127.0.0.1:6379. Connection refused.
+ERROR 2026-05-27 04:11:56,660 log Internal Server Error: /api/accounts/auth/verify-otp/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/accounts/views.py", line 50, in post
+    serializer.is_valid(raise_exception=True)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 225, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 447, in run_validation
+    value = self.validate(value)
+  File "/Users/ilia/StudioProjects/python/accounts/serializers.py", line 38, in validate
+    is_valid, user = OTPService.verify_otp(phone_number, code)
+                     ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/accounts/utils.py", line 153, in verify_otp
+    User = get_user_model()
+           ^^^^^^^^^^^^^^
+NameError: name 'get_user_model' is not defined
+ERROR 2026-05-27 04:36:20,619 log Internal Server Error: /admin/auth/group/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-27 04:36:30,492 log Internal Server Error: /admin/auth/group/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-27 04:38:26,990 log Internal Server Error: /admin/token_blacklist/blacklistedtoken/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-27 04:38:30,180 log Internal Server Error: /admin/auth/group/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-27 04:38:32,641 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-27 04:38:36,901 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 05:20:49,921 log Internal Server Error: /admin/accounts/user/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 05:33:03,413 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 05:33:18,565 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 05:33:36,972 log Internal Server Error: /admin/accounts/user/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 13:41:19,909 log Internal Server Error: /admin/accounts/user/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-29 13:41:54,358 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-30 17:42:20,638 log Internal Server Error: /api/suppliers/list/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/suppliers/views.py", line 12, in companies_list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `phone` is not valid for model `Company` in `suppliers.serializers.CompanySerializer`.
+ERROR 2026-05-30 17:42:20,804 log Internal Server Error: /api/suppliers/list/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/Users/ilia/StudioProjects/python/suppliers/views.py", line 12, in companies_list
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 716, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 525, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1105, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1251, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/rest_framework/serializers.py", line 1369, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `phone` is not valid for model `Company` in `suppliers.serializers.CompanySerializer`.
+ERROR 2026-05-30 18:00:35,814 log Internal Server Error: /admin/accounts/user/add/
+Traceback (most recent call last):
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/backends/django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/contrib/admin/templatetags/base.py", line 45, in render
+    return super().render(context)
+           ~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/library.py", line 273, in render
+    new_context = context.new(_dict)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 275, in new
+    new_context = super().new(values)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 112, in new
+    new_context = copy(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/copy.py", line 82, in copy
+    return copier(x)
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 160, in __copy__
+    duplicate = super().__copy__()
+  File "/Users/ilia/StudioProjects/python/venv/lib/python3.14/site-packages/django/template/context.py", line 41, in __copy__
+    duplicate.dicts = self.dicts[:]
+    ^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute 'dicts' and no __dict__ for setting new attributes
+ERROR 2026-05-31 02:51:41,043 log Internal Server Error: /api/products/upload-excel/

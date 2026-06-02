@@ -1,0 +1,29 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block content %}
+<h2>لیست همه کاربران</h2>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>نام کاربری</th>
+            <th>شماره موبایل</th>
+            <th>نام نمایشی</th>
+            <th>نقش</th>
+            <th>وضعیت درخواست</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.display_name|default:"---" }}</td>
+            <td>{{ user.get_role_display }}</td>
+            <td>{{ user.get_supplier_request_status_display|default:"---" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
