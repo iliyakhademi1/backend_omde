@@ -8,6 +8,8 @@ psycopg[binary]==3.2.10
 redis==5.2.1
 django-redis==6.0.0
 celery==5.4.0
+smsir-python==1.1.0
+requests==2.32.3
 
 # Testing
 pytest==8.4.0
